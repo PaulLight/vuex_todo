@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <div v-bind:key="todo.id" v-for="todo in todos">
+      <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)"/>
+    </div>
+  </div>
+</template>
+
+<script>
+import TodoItem from '@/components/TodoItem';
+
+export default {
+  name: 'Todos',
+  components: {
+    TodoItem
+  },
+  props: ['todos']
+}
+</script>
+
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
